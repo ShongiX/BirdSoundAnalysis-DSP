@@ -34,9 +34,6 @@ for file_name in file_list:
         # Generate white noise with the same length as the original audio
         noise = np.random.normal(0, spread, len(data))
 
-        # Scale the noise spread based on the desired level
-        noise *= spread
-
         # Add the noise to the original audio
         noised_data = data + noise
 
