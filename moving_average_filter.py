@@ -46,7 +46,7 @@ for file_name in file_list:
     plt.ylim(-1, 1)
     plt.subplot(2, 1, 2)
     plt.plot(time, filtered_data)
-    plt.title('Filtered Signal: ' + file_name)
+    plt.title('Moving average filtered Signal: ' + file_name)
     plt.xlabel('Time (s)')
     plt.ylabel('Amplitude')
     plt.xlim(0, 16)
