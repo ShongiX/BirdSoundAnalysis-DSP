@@ -22,7 +22,7 @@ for file_name in file_list:
     data = np.mean(data, axis=1)
 
     # Define the window size for the moving average filter
-    window_size = 100
+    window_size = 20
 
     # Apply the moving average filter
     filtered_data = np.convolve(data, np.ones(window_size) / window_size, mode='same')
