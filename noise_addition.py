@@ -14,6 +14,7 @@ noise_spread = np.arange(0.01, 0.51, 0.01)
 
 # Loop through each file and apply noise for each spread
 for file_name in file_list:
+    # The script could add noise to all samples, but I was curious about the already filtered one
     if file_name != "CommonBlackbird_XC605371_audition_filtered.wav":
         continue
 
