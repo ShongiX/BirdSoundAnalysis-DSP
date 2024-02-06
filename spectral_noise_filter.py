@@ -10,8 +10,8 @@ audio, sr = librosa.load(folder_path + file_name)
 
 # Split the audio into noise-only and speech-plus-noise sections
 noise_duration = 1.0  # Duration of the noise-only segment (in seconds)
-# noise_audio = audio[int(1.5 * sr):int(1.5 * sr + noise_duration * sr)]
-noise_audio = audio[int(14.4 * sr):int(14.4 * sr + noise_duration * sr)]
+noise_audio = audio[int(1.5 * sr):int(1.5 * sr + noise_duration * sr)]
+# noise_audio = audio[int(14.4 * sr):int(14.4 * sr + noise_duration * sr)]
 speech_audio = audio[:]
 
 # Compute the noise spectrum using a short-time Fourier transform (STFT)
@@ -37,7 +37,7 @@ denoised_stft = denoised_mag * np.exp(1j * speech_phase)
 denoised_audio = librosa.istft(denoised_stft, hop_length=hop_length)
 
 # Save the denoised audio as a WAV file
-wavfile.write('audio/filtered/' + file_name.replace('.wav', '_spec_filter.wav'), sr, denoised_audio)
+wavfile.write('audio/filtered/' + file_name.replace('.wav', '_spec_filter2.wav'), sr, denoised_audio)
 
 # Plot the original and filtered signals
 time = np.arange(len(audio)) / sr

@@ -4,9 +4,10 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
+import matplotlib.pyplot as plt
 
 # Define the path to the audio files
-data_path = 'audio/noised_batch/'
+data_path = 'audio/filtered/'
 
 # Define the classes
 classes = ['CommonBlackbird', 'WhiteStork']
@@ -22,6 +23,13 @@ for filename in os.listdir(data_path):
         waveform, sample_rate = librosa.load(file_path, sr=None)
         # Extract desired features from waveform
         feature_vector = librosa.feature.mfcc(y=waveform, sr=sample_rate)
+
+        # Plot MFCC
+        plt.figure()
+        librosa.display.specshow(feature_vector, x_axis='time')
+        plt.colorbar(format='%+2.0f dB')
+        plt.title('MFCC')
+        plt.show()
 
         features.append(feature_vector.flatten())
         # Extract the class label from the filename

@@ -6,7 +6,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
 
 # Define the path to the audio files
-data_path = 'audio/noised_batch/'
+data_path = 'audio/wav/'
 
 # Define the classes
 classes = ['CommonBlackbird', 'WhiteStork']
